@@ -3,21 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolCollections.Sandbox", "CoolCollections.Sandbox\CoolCollections.Sandbox.csproj", "{D963B500-D0B2-4901-8DFD-CA080FCA89ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolCollections.Sandbox", "CoolCollections.Sandbox\CoolCollections.Sandbox.csproj", "{D963B500-D0B2-4901-8DFD-CA080FCA89ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolCollections", "CoolCollections\CoolCollections.csproj", "{3AC0074D-C70F-4064-B435-398B8B96650B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolCollections", "CoolCollections\CoolCollections.csproj", "{3AC0074D-C70F-4064-B435-398B8B96650B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolCollections.UnitTests", "CoolCollections.UnitTests\CoolCollections.UnitTests.csproj", "{06B89DD4-C85F-4952-8226-5C5C320626B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolCollections.UnitTests", "CoolCollections.UnitTests\CoolCollections.UnitTests.csproj", "{06B89DD4-C85F-4952-8226-5C5C320626B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{5B37E737-23EF-4F87-B0E7-E2869A2D7A91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinearDataStructures", "LinearDataStructures", "{A192679A-828D-4CED-9A47-A762668AEAC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01.SumAndAverage", "Exercises\LinearDataStructures\P01.SumAndAverage\P01.SumAndAverage.csproj", "{B87E8CC8-DB77-44C6-88D0-3E362BC72232}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P01.SumAndAverage", "Exercises\LinearDataStructures\P01.SumAndAverage\P01.SumAndAverage.csproj", "{B87E8CC8-DB77-44C6-88D0-3E362BC72232}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02.SortWords", "Exercises\LinearDataStructures\P02.SortWords\P02.SortWords.csproj", "{2B8B5D91-CB06-4C63-84F0-2C92C03583A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P03.LongestSubsequence", "Exercises\LinearDataStructures\P03.LongestSubsequence\P03.LongestSubsequence.csproj", "{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04.RemoveOddOccurrences", "Exercises\LinearDataStructures\P04.RemoveOddOccurrences\P04.RemoveOddOccurrences.csproj", "{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.CountOfOccurrences", "Exercises\LinearDataStructures\P05.CountOfOccurrences\P05.CountOfOccurrences.csproj", "{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,14 @@ Global
 		{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +70,8 @@ Global
 		{B87E8CC8-DB77-44C6-88D0-3E362BC72232} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 		{2B8B5D91-CB06-4C63-84F0-2C92C03583A3} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 		{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C} = {A192679A-828D-4CED-9A47-A762668AEAC7}
+		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2} = {A192679A-828D-4CED-9A47-A762668AEAC7}
+		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5A7D6E0-9D05-487C-AF9C-563DDCD7F056}
