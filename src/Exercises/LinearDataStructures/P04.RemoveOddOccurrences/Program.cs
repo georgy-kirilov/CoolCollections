@@ -8,6 +8,11 @@
     {
         public static void Main()
         {
+            DictionarySolution();
+        }
+
+        public static void DictionarySolution()
+        {
             var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
             var numbersOccurencesPairs = new Dictionary<int, int>();
 

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04.RemoveOddOccurrences", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P05.CountOfOccurrences", "Exercises\LinearDataStructures\P05.CountOfOccurrences\P05.CountOfOccurrences.csproj", "{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07.DistanceInLabyrinth", "Exercises\LinearDataStructures\P07.DistanceInLabyrinth\P07.DistanceInLabyrinth.csproj", "{B6687CDB-036C-4EA1-9B1A-3347BDE7F751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6687CDB-036C-4EA1-9B1A-3347BDE7F751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6687CDB-036C-4EA1-9B1A-3347BDE7F751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6687CDB-036C-4EA1-9B1A-3347BDE7F751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6687CDB-036C-4EA1-9B1A-3347BDE7F751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{09BB0E02-C1F4-4FA1-BDCF-CDB71B8EC58C} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 		{BB65D5A6-1C83-4F7A-89B1-1B7198BD4CF2} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 		{FFAF55A2-A5CB-429D-9AD8-20BC14816D66} = {A192679A-828D-4CED-9A47-A762668AEAC7}
+		{B6687CDB-036C-4EA1-9B1A-3347BDE7F751} = {A192679A-828D-4CED-9A47-A762668AEAC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5A7D6E0-9D05-487C-AF9C-563DDCD7F056}
