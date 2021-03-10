@@ -5,40 +5,55 @@
 
     public interface IList<T>
     {
-        int Count { get; }
+        public T this[int index] { get; set; }
 
-        int Capacity { get; }
+        public int Count { get; }
 
-        T this[int index] { get; set; }
+        public int Capacity { get; }
 
         void Add(T item);
 
         void AddRange(IEnumerable<T> collection);
 
-        void Insert(int index, T item);
-
-        void InsertRange(int index, IEnumerable<T> collection);
-
-        int IndexOf(T item);
-
-        int LastIndexOf(T item);
+        void Clear();
 
         bool Contains(T item);
 
         bool Contains(Predicate<T> match);
 
-        bool Remove(T item);
+        int IndexOf(T item);
 
-        T RemoveAt(int index);
+        int IndexOf(Predicate<T> match);
 
-        void RemoveAll(T item);
+        int LastIndexOf(T item);
 
-        void RemoveRange(int index, int count);
-
-        void Clear();
+        int LastIndexOf(Predicate<T> match);
 
         IList<TOut> ConvertAll<TOut>(Func<T, TOut> converter);
 
+        IEnumerator<T> GetEnumerator();
+
         IList<T> GetRange(int startIndex, int count);
+
+        void Insert(int index, T item);
+
+        void InsertRange(int index, IEnumerable<T> collection);
+        bool Remove(T item);
+
+        bool Remove(Predicate<T> match);
+
+        bool RemoveLast(T item);
+
+        bool RemoveLast(Predicate<T> match);
+
+        void RemoveAll(T item);
+
+        void RemoveAll(Predicate<T> match);
+
+        T RemoveAt(int index);
+
+        void RemoveRange(int index, int count);
+
+        T[] ToArray();
     }
 }

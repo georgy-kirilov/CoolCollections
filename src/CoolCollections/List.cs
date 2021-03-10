@@ -1,14 +1,19 @@
 ﻿namespace CoolCollections
 {
     using System;
+    using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics;
 
     public class List<T> : IList<T>, IEnumerable<T>
     {
         private const int InitialCapacity = 2;
         private T[] array;
+
+        public List(IEnumerable<T> collection) : this(collection.Count())
+        {
+            this.AddRange(collection);
+        }
 
         public List() : this(InitialCapacity)
         {
@@ -18,11 +23,6 @@
         {
             this.array = new T[initialCapacity];
             this.Count = 0;
-        }
-
-        public List(IEnumerable<T> collection) : this()
-        {
-            this.AddRange(collection);
         }
 
         public T this[int index]
@@ -192,10 +192,8 @@
 
         public void RemoveAll(Predicate<T> match)
         {
-            int newLength = (int)(this.Count * 1.5);
             int index = 0;
-
-            T[] filteredArray = new T[newLength];
+            T[] filteredArray = new T[this.Count];
 
             foreach (T item in this)
             {
@@ -227,6 +225,18 @@
         public void RemoveRange(int index, int count)
         {
             throw new NotImplementedException();
+        }
+
+        public T[] ToArray()
+        {
+            T[] copy = new T[this.Count];
+
+            for (int i = 0; i < this.Count; i++)
+            {
+                copy[i] = this.array[i];
+            }
+
+            return copy;
         }
 
         public override string ToString()
