@@ -38,6 +38,7 @@
         void Insert(int index, T item);
 
         void InsertRange(int index, IEnumerable<T> collection);
+
         bool Remove(T item);
 
         bool Remove(Predicate<T> match);
@@ -51,8 +52,6 @@
         void RemoveAll(Predicate<T> match);
 
         T RemoveAt(int index);
-
-        void RemoveRange(int index, int count);
 
         T[] ToArray();
     }

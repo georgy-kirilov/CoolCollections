@@ -7,16 +7,12 @@
         public static void Main()
         {
             var list = new List<int>();
-            for (int i = 0; i < 50; i++)
+
+            for (int i = 0; i < 5; i++)
             {
                 list.Add(i);
             }
-            list.RemoveAll(x => x % 2 != 0);
-            Console.WriteLine(list[list.LastIndexOf(x => x > 20 && x < 30)]);
-            Console.WriteLine(list);
-
-            string res = new List<string>("7 8  9 -1 22    1  ".Split(" ", StringSplitOptions.RemoveEmptyEntries)).ConvertAll(x => int.Parse(x) * 2).ToString();
-            Console.WriteLine(res);
+            Console.WriteLine(list.GetRange(0, 1));
         }
     }
 }

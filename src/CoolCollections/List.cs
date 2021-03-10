@@ -120,7 +120,25 @@
 
         public IList<T> GetRange(int startIndex, int count)
         {
-            throw new NotImplementedException();
+            this.ThrowIfIndexOutOfRange(startIndex);
+
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException("Count cannot be less than zero");
+            }
+
+            var sublist = new List<T>(count);
+            for (int i = startIndex; i < startIndex + count; i++)
+            {
+                if (i == this.Count)
+                {
+                    break;
+                }
+
+                sublist.Add(this[i]);
+            }
+
+            return sublist;
         }
 
         public void Insert(int index, T item)
@@ -206,6 +224,7 @@
 
             this.array = filteredArray;
             this.Count = index;
+            this.Shrink();
         }
 
         public T RemoveAt(int index)
@@ -219,12 +238,8 @@
             }
 
             this.Count--;
+            this.Shrink();
             return removedItem;
-        }
-
-        public void RemoveRange(int index, int count)
-        {
-            throw new NotImplementedException();
         }
 
         public T[] ToArray()
@@ -277,6 +292,16 @@
             }
 
             this.array = copy;
+        }
+
+        private void Shrink()
+        {
+            if (this.Count <= this.Capacity / 4)
+            {
+                T[] copy = new T[this.Count * 2];
+                Array.Copy(this.array, copy, this.Count);
+                this.array = copy;
+            }
         }
 
         private void ThrowIfIndexOutOfRange(int index, bool inclusive = true)
