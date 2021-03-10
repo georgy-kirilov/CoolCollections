@@ -25,6 +25,8 @@
 
         bool Contains(T item);
 
+        bool Contains(Predicate<T> match);
+
         bool Remove(T item);
 
         T RemoveAt(int index);

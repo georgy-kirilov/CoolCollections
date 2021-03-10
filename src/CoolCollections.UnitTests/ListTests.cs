@@ -182,7 +182,10 @@
         }
 
         [Test]
-        public void Insert_IncorrectIndex_Should_ThrowException([Values(int.MinValue, ListInitialCount, int.MaxValue)] int index)
+        [TestCase(int.MinValue)]
+        [TestCase(int.MaxValue)]
+        [TestCase(ListInitialCount + 1)]
+        public void Insert_IncorrectIndex_Should_ThrowException(int index)
         {
             Assert.Throws<IndexOutOfRangeException>(() => this.list.Insert(index, 5));
         }
@@ -210,6 +213,27 @@
 
                 Assert.AreEqual(expected, this.list[i]);
             }
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount - 1)]
+        public void InsertRange_CorrectIndex_Should_IncrementCount(int index)
+        {
+            int length = 5;
+            var collection = Enumerable.Range(100, length);
+            this.list.InsertRange(index, collection);
+            Assert.AreEqual(ListInitialCount + length, this.list.Count);
+        }
+
+        [Test]
+        [TestCase(int.MinValue)]
+        [TestCase(int.MaxValue)]
+        [TestCase(ListInitialCount + 1)]
+        public void InsertRange_IncorrectIndex_Should_ThrowException(int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => this.list.InsertRange(index, new int[] { 1, 2, 3 }));
         }
     }
 }
