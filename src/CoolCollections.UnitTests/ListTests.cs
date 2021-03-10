@@ -1,8 +1,8 @@
 ﻿namespace CoolCollections.UnitTests
 {
-    using NUnit.Framework;
     using System;
     using System.Linq;
+    using NUnit.Framework;
 
     [TestFixture]
     public class ListTests
@@ -10,9 +10,6 @@
         private const int ListInitialCount = 10;
         private const int FirstListItem = 1;
         private List<int> list;
-
-        private int[] existingItems = new int[] { FirstListItem, ListInitialCount / 2, ListInitialCount };
-        private int[] unexistingItems = new int[] { int.MinValue, int.MaxValue, ListInitialCount + 1 };
 
         [SetUp]
         public void InitializeList()
@@ -107,57 +104,57 @@
         }
 
         [Test]
-        public void Contains_ExistingItem_Should_ReturnTrue()
+        [TestCase(FirstListItem)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount)]
+        public void Contains_ExistingItem_Should_ReturnTrue(int item)
         {
-            foreach (int item in this.existingItems)
-            {
-                Assert.IsTrue(this.list.Contains(item));
-            }
+            Assert.IsTrue(this.list.Contains(item));
         }
 
         [Test]
-        public void Contains_UnexistingItem_Should_ReturnFalse()
+        [TestCase(int.MinValue)]
+        [TestCase(int.MaxValue)]
+        [TestCase(ListInitialCount + 1)]
+        public void Contains_UnexistingItem_Should_ReturnFalse(int item)
         {
-            foreach (int item in this.unexistingItems)
-            {
-                Assert.IsFalse(this.list.Contains(item));
-            }
+            Assert.IsFalse(this.list.Contains(item));
         }
 
         [Test]
-        public void IndexOf_ExistingItem_Should_ReturnCorrectIndex()
+        [TestCase(FirstListItem)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount)]
+        public void IndexOf_ExistingItem_Should_ReturnCorrectIndex(int item)
         {
-            foreach (int item in this.existingItems)
-            {
-                Assert.AreEqual(item - 1, this.list.IndexOf(item));
-            }
+            Assert.AreEqual(item - 1, this.list.IndexOf(item));
         }
 
         [Test]
-        public void IndexOf_UnexistingItem_Should_ReturnNegativeIndex()
+        [TestCase(int.MinValue)]
+        [TestCase(int.MaxValue)]
+        [TestCase(ListInitialCount + 1)]
+        public void IndexOf_UnexistingItem_Should_ReturnNegativeIndex(int item)
         {
-            foreach (int item in this.unexistingItems)
-            {
-                Assert.IsTrue(this.list.IndexOf(item) < 0);
-            }
+            Assert.IsTrue(this.list.IndexOf(item) < 0);
         }
 
         [Test]
-        public void LastIndexOf_ExistingItem_Should_ReturnCorrectIndex()
+        [TestCase(FirstListItem)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount)]
+        public void LastIndexOf_ExistingItem_Should_ReturnCorrectIndex(int item)
         {
-            foreach (int item in this.existingItems)
-            {
-                Assert.AreEqual(item - 1, this.list.LastIndexOf(item));
-            }
+            Assert.AreEqual(item - 1, this.list.LastIndexOf(item));
         }
 
         [Test]
-        public void LastIndexOf_UnexistingItem_Should_ReturnNegativeIndex()
+        [TestCase(int.MinValue)]
+        [TestCase(int.MaxValue)]
+        [TestCase(ListInitialCount + 1)]
+        public void LastIndexOf_UnexistingItem_Should_ReturnNegativeIndex(int item)
         {
-            foreach (int item in this.unexistingItems)
-            {
-                Assert.IsTrue(this.list.LastIndexOf(item) < 0);
-            }
+            Assert.IsTrue(this.list.LastIndexOf(item) < 0);
         }
 
         [Test]
@@ -175,7 +172,10 @@
         }
 
         [Test]
-        public void Insert_CorrectIndex_Should_IncrementCount([Values(0, ListInitialCount / 2, ListInitialCount - 1)] int index)
+        [TestCase(0)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount - 1)]
+        public void Insert_CorrectIndex_Should_IncrementCount(int index)
         {
             this.list.Insert(index, 5);
             Assert.AreEqual(ListInitialCount + 1, this.list.Count);
@@ -188,11 +188,12 @@
         }
 
         [Test]
-        [TestCase(0, 5)]
-        [TestCase(ListInitialCount / 2, 5)]
-        [TestCase(ListInitialCount - 1, 5)]
-        public void Insert_CorrectIndex_Should_InsertItemProperly(int index, int item)
+        [TestCase(0)]
+        [TestCase(ListInitialCount / 2)]
+        [TestCase(ListInitialCount - 1)]
+        public void Insert_CorrectIndex_Should_InsertItemProperly(int index)
         {
+            int item = 5;
             this.list.Insert(index, item);
             for (int i = 0; i < this.list.Count; i++)
             {
