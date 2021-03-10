@@ -32,6 +32,7 @@
             {
                 this.list.Add(i);
             }
+
             Assert.AreEqual(ListInitialCount + length, this.list.Count);
         }
 
@@ -51,6 +52,7 @@
         {
             int[] collection = new int[] { 100, 200, 300, 400, 500 };
             this.list.AddRange(collection);
+
             for (int i = 0; i < collection.Length; i++)
             {
                 int itemIndex = this.list.Count - collection.Length + i;
@@ -90,6 +92,7 @@
             {
                 this.list[i] = 0;
             }
+
             foreach (int item in this.list)
             {
                 Assert.AreEqual(0, item);
@@ -161,10 +164,50 @@
         public void ConvertAll_Items_Should_ReturnCorrectResult()
         {
             IList<string> stringList = this.list.ConvertAll(x => (x * x).ToString());
+
             for (int i = 0; i < this.list.Count; i++)
             {
                 string expected = (this.list[i] * this.list[i]).ToString();
                 Assert.AreEqual(expected, stringList[i]);
+            }
+
+            Assert.AreEqual(this.list.Count, stringList.Count, "Both lists counts should match");
+        }
+
+        [Test]
+        public void Insert_CorrectIndex_Should_IncrementCount([Values(0, ListInitialCount / 2, ListInitialCount - 1)] int index)
+        {
+            this.list.Insert(index, 5);
+            Assert.AreEqual(ListInitialCount + 1, this.list.Count);
+        }
+
+        [Test]
+        public void Insert_IncorrectIndex_Should_ThrowException([Values(int.MinValue, ListInitialCount, int.MaxValue)] int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => this.list.Insert(index, 5));
+        }
+
+        [Test]
+        [TestCase(0, 5)]
+        [TestCase(ListInitialCount / 2, 5)]
+        [TestCase(ListInitialCount - 1, 5)]
+        public void Insert_CorrectIndex_Should_InsertItemProperly(int index, int item)
+        {
+            this.list.Insert(index, item);
+            for (int i = 0; i < this.list.Count; i++)
+            {
+                int expected = i + 1;
+
+                if (i == index)
+                {
+                    expected = item;
+                }
+                else if (i > index)
+                {
+                    expected = i;
+                }
+
+                Assert.AreEqual(expected, this.list[i]);
             }
         }
     }

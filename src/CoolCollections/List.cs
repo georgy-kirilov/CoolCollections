@@ -19,6 +19,11 @@
             this.Count = 0;
         }
 
+        public List(IEnumerable<T> collection) : this()
+        {
+            this.AddRange(collection);
+        }
+
         public T this[int index]
         { 
             get
@@ -86,7 +91,7 @@
 
         public IList<T> GetRange(int startIndex, int count)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public int IndexOf(T item)
@@ -101,12 +106,28 @@
 
         public void Insert(int index, T item)
         {
-            throw new System.NotImplementedException();
+            this.ThrowIfIndexOutOfRange(index);
+
+            if (this.Count >= this.Capacity)
+            {
+                this.Expand();
+            }
+
+            for (int i = this.Count; i > index; i--)
+            {
+                this.array[i] = this.array[i - 1];
+            }
+
+            this.array[index] = item;
+            this.Count++;
         }
 
         public void InsertRange(int index, IEnumerable<T> collection)
         {
-            throw new NotImplementedException();
+            foreach (T item in collection)
+            {
+                this.Insert(index, item);
+            }
         }
 
         public bool Remove(T item)
