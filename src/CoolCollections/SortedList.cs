@@ -44,7 +44,7 @@
         {
             if (item == null)
             {
-                throw new NullReferenceException("Item with null value cannot be added");
+                throw new ArgumentNullException("Item with null value cannot be added");
             }
 
             if (this.Count >= this.Capacity)

@@ -1,21 +1,22 @@
 ﻿namespace CoolCollections.Sandbox
 {
+    using CoolCollections.Trees;
     using System;
 
     public class Program
     {
         public static void Main()
         {
-            var list = new SortedList<int>(ascendingOrder: true);
-            list.Add(2);
-            list.Add(0);
-            list.Add(1);
-            list.Add(3);
-            list.Add(5);
-            list.Add(1);
-            list.AscendingOrder = false;
-            Console.WriteLine(list.Contains(0));
-            
+            var tree = new BinaryTree<int>(10);
+            tree.Add(7);
+            tree.Add(4);
+            tree.Add(8);
+            tree.Add(12);
+            tree.Add(11);
+            tree.Add(13);
+            tree.Add(13);
+            tree.Add(15);
+            Console.WriteLine();
         }
     }
 }
