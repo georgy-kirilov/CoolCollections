@@ -6,13 +6,14 @@
     {
         public static void Main()
         {
-            var list = new List<int>();
-
-            for (int i = 0; i < 5; i++)
-            {
-                list.Add(i);
-            }
-            Console.WriteLine(list.GetRange(0, 1));
+            var list = new SortedList<int>(ascendingOrder: false);
+            list.Add(2);
+            list.Add(0);
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            list.Add(1);
+            Console.WriteLine(list);
         }
     }
 }
